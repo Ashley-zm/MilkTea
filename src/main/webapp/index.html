@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>naicha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    <script src="layui/layui.all.js"></script>
+    <script src="layui/layui.js"></script>
+    <style>
+        #test1 {
+            width: 100% !important;
+            height: 70% !important;
+        }
+
+        #test1 img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body class="layui-layout-body" style="overflow: hidden">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">奶茶自主管理系统</div>
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="">芋泥波波奶茶，不要芋泥，不要奶茶，只要(●´З｀●)</a></li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="">个人中心<span class="layui-badge-dot"></span></a>
+                </li>
+                <li class="layui-nav-item" lay-unselect="">
+                    <img src="img/logo.jpg" id="userm" class="layui-nav-img">
+                    <a href="javascript:;" id="usern"></a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">修改信息</a></dd>
+                        <dd><a href="javascript:;">安全管理</a></dd>
+                        <dd><a href="javascript:;">退了</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+        <script>
+            console.log(localStorage.getItem("uid"));
+            console.log(localStorage.getItem("realname"));
+            var usern = document.getElementById("usern");
+            var userm = document.getElementById("userm");
+            usern.style.display = "inline";
+            userm.style.marginLeft = " 15px";
+            userm.style.marginRight = "-10px";
+            usern.innerText = localStorage.getItem("realname");
+
+        </script>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item"><a href="">侧边栏导航</a></li>
+                </ul> -->
+                <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo" style="margin-right: 10px;">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a href="javascript:;">我的管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="table.html" target="main_self_frame">员工管理</a></dd>
+                            <dd><a lay-href="">商品管理</a></dd>
+                            <dd><a href="javascript:;">用户管理</a></dd>
+                            <dd><a href="">订单管理</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">解决方案</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="">移动模块</a></dd>
+                            <dd><a href="">后台模版</a></dd>
+                            <dd><a href="">电商平台</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a href="">云市场</a></li>
+                    <li class="layui-nav-item"><a href="">社区</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div class="layui-carousel" id="test1" lay-filter="test1">
+                <div carousel-item="">
+                    <div><img src="img/lunbo1.jpg" alt=""></div>
+                    <div><img src="img/lunbo2.jpg" alt=""></div>
+                    <div><img src="img/lunbo3.jpg" alt=""></div>
+                    <div><img src="img/lunbo4.jpg" alt=""></div>
+                    <div><img src="img/lunbo5.jpg" alt=""></div>
+                </div>
+            </div>
+            <iframe src="table.html" name="main_self_frame" frameborder="0" class="layadmin-iframe"
+                style="margin: 40px;width:70%; text-align: center;"></iframe>
+            <!--<iframe src="login.html" name="main_self_frame" frameborder="0" class="layadmin-iframe"
+                style="display: none;"></iframe> -->
+        </div>
+
+        <div class="layui-footer" style="text-align:center;">
+            <!-- 底部固定区域 -->
+            © layui.com - 底部固定区域
+        </div>
+    </div>
+    <script>
+        layui.use('element', function () {
+            var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+            //监听导航点击
+            element.on('nav(demo)', function (elem) {
+                layer.msg(elem.text());
+            });
+        });
+        var test1 = document.getElementById("test1");
+        layui.use(['carousel', 'form'], function () {
+            var carousel = layui.carousel
+                , form = layui.form;
+
+            //常规轮播
+            carousel.render({
+                elem: '#test1'
+                , arrow: 'always'
+            });
+        })
+
+    </script>
+</body>
+
+</html>
