@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="513168d8-499a-4f8e-a48e-2ac1a54348b2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/GoodsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/GoodsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/GoodsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/GoodsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/table.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/service/TmenuServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/web/GoodsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/GoodsServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-04-27" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-04-27" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JUnit4 Test Class" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -59,18 +68,18 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.service" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\webapp" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\webapp\js" />
       <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\webapp" />
       <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\webapp\css" />
       <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\dao" />
       <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\resources" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\webapp" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -85,7 +94,38 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.GoodsServiceTest.getall">
+    <configuration name="GoodsServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="milk_tea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.service" />
+      <option name="MAIN_CLASS_NAME" value="com.service.GoodsServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GoodsServiceTest.getall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="milk_tea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.service" />
+      <option name="MAIN_CLASS_NAME" value="com.service.GoodsServiceTest" />
+      <option name="METHOD_NAME" value="getall" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TmenuServiceTest.getByUid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="milk_tea" />
       <extension name="coverage">
@@ -104,6 +144,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GoodsServiceTest.getall" />
+        <item itemvalue="JUnit.GoodsServiceTest" />
         <item itemvalue="JUnit.TmenuServiceTest.getByUid" />
       </list>
     </recent_temporary>
@@ -126,7 +168,8 @@
       <workItem from="1587823553195" duration="8497000" />
       <workItem from="1587876394966" duration="302000" />
       <workItem from="1587879569539" duration="9345000" />
-      <workItem from="1587950562088" duration="2284000" />
+      <workItem from="1587950562088" duration="3526000" />
+      <workItem from="1587955841505" duration="12645000" />
     </task>
     <servers />
   </component>
@@ -138,7 +181,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
