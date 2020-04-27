@@ -24,11 +24,11 @@
   </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TmenuServlet</servlet-name>
-        <url-pattern>/tablel</url-pattern>
+        <url-pattern>/tableTmenu</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GoodsServlet</servlet-name>
-        <url-pattern>/table</url-pattern>
+        <url-pattern>/GoodsServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>login.html</welcome-file>

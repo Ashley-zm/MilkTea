@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    <script src="layui/layui.all.js"></script>
+    <script src="layui/layui.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+
+<body>
+    <hr />
+    <table id="tab" border="1px" width="50%" cellspacing="0px" cellpadding="10px" align="center">
+        <thead>
+            <tr>
+                <td>序号</td>
+                <td>价格</td>
+                <td>奶茶名称</td>
+                <td>奶茶原材料</td>
+                <td>介绍说明</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="(item, index) in items" :key="index">
+                <td>{{index+1}}</td>
+                <td>{{item.sname}}</td>
+                <td>¥{{item.sprice}}</td>
+                <td>{{item.materials}}</td>
+                <td>{{item.introduction}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <table id="demo" lay-filter="test"></table> -->
+
+    <script>
+        var app1 = new Vue({
+            el: "#tab",
+            data: {
+                items: [],
+                item: false
+            },
+            created: function () {
+                axios.get("GoodsServlet").then((ret) => {
+                    app1.items = ret.data
+                    console.log(ret.data)
+                })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            },
+            methods: {
+                closes1: function () {
+                    this.item = false;
+                },
+                opens1: function () {
+                    this.item = true;
+                }
+
+            },
+        });
+
+        // //JavaScript代码区域
+        // layui.use('element', function () {
+
+        //     var element = layui.element;
+
+        // });
+
+        // layui.use('table', function () {
+
+        //     var table = layui.table;
+
+        //     //第一个实例
+        //     table.render({
+        //         elem: '#demo'
+        //         , height: 500
+        //         , url: 'service/GoodsService.java' //数据接口
+        //         // , toolbar: '#test-table-toolbar-toolbarDemo'
+        //         , page: true //开启分页
+        //         , cols: [[ //表头
+        //             { field: 'id', title: 'ID', width: 80, sort: true, fixed: 'left' },
+        //             { field: 'uname', title: '用户名', width: 80 },
+        //             { field: 'realname', title: '真实用户名', width: 120, sort: true }
+        //         ]]
+        //     });
+
+        // }); 
+    </script>
+</body>
+
+</html>
