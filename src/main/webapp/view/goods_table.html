@@ -18,7 +18,7 @@
         此处的 lay-filte="userTable" 
         对应下面jstable.on('toolbar(userTable)'..
     -->
-    <table class="layui-hide" id="test" lay-filte="userTable"></table>
+    <table class="layui-hide" id="test" lay-filter="userTable"></table>
     <div style="display:none;" id="userToolBar">
         <!-- 在此处添加lay-event事件（add，delete） -->
         <button type="button" class="layui-btn layui-btn-sm " lay-event="add">添加</button>
@@ -45,15 +45,23 @@
                 , page: true  //分页
                 , toolbar: "#userToolBar" //按钮
                 , cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                , parseData: function (res) {
+                    alert(res);
+                    return {
+                        "code": 0, //数据状态
+                        "msg": "", //状态信息
+                        "count": 1000,//数据总数
+                        data: res
+                    }
+                }
                 , cols: [[
-                    { type: 'checkbox', fixed: 'left', LAY_CHECKED: 'true' }
-                    , { type: 'numbers' },
-                    { field: 'id', width: 80, title: 'ID', sort: true }
-                    , { field: 'sname', width: 80, title: '价格' }
-                    , { field: 'sprice', width: 80, title: '奶茶名称' }
-                    , { field: 'materials', width: 180, title: '奶茶原材料' }
+                    { type: 'checkbox', fixed: 'left', LAY_CHECKED: 'true' },
+                    { field: 'id', width: "8%", title: 'ID', sort: true }
+                    , { field: 'sname', width: "14%", title: '奶茶名称' }
+                    , { field: 'sprice', width: "8%", title: '价格 ', sort: true }
+                    , { field: 'materials', width: "26.6%", title: '奶茶原材料' }
                     , { field: 'introduction', title: '介绍说明', width: '30%' }
-                    , { fixed: 'right', title: '操作', toolbar: '#userBar', width: 150 }
+                    , { fixed: 'right', title: '操作', toolbar: '#userBar', width: "10%" }
                 ]]
                 , done: function (res, curr, count) {
                     alert(res);//后台url返回的json字符串 alert(curr);//当前页 alert(count);//数据总条数 
