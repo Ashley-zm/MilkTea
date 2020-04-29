@@ -7,11 +7,11 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="layui/css/layui.css" media="all">
-    <script src="layui/layui.all.js"></script>
-    <script src="layui/layui.js"></script>
-    <script src="js/vue.js"></script>
-    <script src="js/axios.min.js"></script>
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+    <script src="../layui/layui.all.js"></script>
+    <script src="../layui/layui.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/axios.min.js"></script>
 </head>
 
 <body>
@@ -36,7 +36,6 @@
             </tr>
         </tbody>
     </table>
-    <!-- <table id="demo" lay-filter="test"></table> -->
 
     <script>
         var app1 = new Vue({
@@ -46,7 +45,7 @@
                 item: false
             },
             created: function () {
-                axios.get("GoodsServlet").then((ret) => {
+                axios.get("../GoodsServlet").then((ret) => {
                     app1.items = ret.data
                     console.log(ret.data)
                 })
@@ -64,33 +63,6 @@
 
             },
         });
-
-        // //JavaScript代码区域
-        // layui.use('element', function () {
-
-        //     var element = layui.element;
-
-        // });
-
-        // layui.use('table', function () {
-
-        //     var table = layui.table;
-
-        //     //第一个实例
-        //     table.render({
-        //         elem: '#demo'
-        //         , height: 500
-        //         , url: 'service/GoodsService.java' //数据接口
-        //         // , toolbar: '#test-table-toolbar-toolbarDemo'
-        //         , page: true //开启分页
-        //         , cols: [[ //表头
-        //             { field: 'id', title: 'ID', width: 80, sort: true, fixed: 'left' },
-        //             { field: 'uname', title: '用户名', width: 80 },
-        //             { field: 'realname', title: '真实用户名', width: 120, sort: true }
-        //         ]]
-        //     });
-
-        // }); 
     </script>
 </body>
 
