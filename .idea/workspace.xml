@@ -3,26 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="513168d8-499a-4f8e-a48e-2ac1a54348b2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/DH.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/GoodsDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/TmenuDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/TuserDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/Goods.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/Tmenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/Trole.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/Tuser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/service/GoodsService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/service/TmenuService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/service/TuserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/web/GoodsServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/web/TmenuServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/web/loginServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/conf/logging.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/conf/tomcat-users.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/conf/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-04-27" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/GoodsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/GoodsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/table-vue.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/table.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -180,6 +165,7 @@
       <workItem from="1587879569539" duration="9345000" />
       <workItem from="1587950562088" duration="3526000" />
       <workItem from="1587955841505" duration="14036000" />
+      <workItem from="1588161678529" duration="4987000" />
     </task>
     <servers />
   </component>

@@ -17,7 +17,6 @@
         <servlet-name>GoodsServlet</servlet-name>
         <servlet-class>com.web.GoodsServlet</servlet-class>
     </servlet>
-    
     <servlet-mapping>
     <servlet-name>loginServlet</servlet-name>
     <url-pattern>/loginServlet</url-pattern>

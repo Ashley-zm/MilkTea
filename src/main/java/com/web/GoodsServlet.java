@@ -1,6 +1,7 @@
 package com.web;
 
 
+import com.alibaba.fastjson.JSON;
 import com.service.GoodsService;
 
 import javax.servlet.ServletException;
@@ -27,7 +28,9 @@ public class GoodsServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
-        System.out.println(l);
+//        把json字符串转换成json对象
+//        Object lj = JSON.parse(l);
+        System.out.println("--------------"+l);
         out.println(l);
 //        flush()意思是把缓冲区的内容强制的写出
 //        flush方法一般是程序写入完成时执行。随后跟着close方法。
