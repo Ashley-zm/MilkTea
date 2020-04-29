@@ -42,7 +42,7 @@
             el: "#tab",
             data: {
                 items: [],
-                item: false
+                s1: false
             },
             created: function () {
                 axios.get("../GoodsServlet").then((ret) => {
@@ -55,10 +55,10 @@
             },
             methods: {
                 closes1: function () {
-                    this.item = false;
+                    this.s1 = false;
                 },
                 opens1: function () {
-                    this.item = true;
+                    this.s1 = true;
                 }
 
             },
