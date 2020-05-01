@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../layui/layui.all.js"></script>
+  <script src="../layui/layui.js"></script>
+  <script src="../js/vue.js"></script>
+  <script src="../js/axios.min.js"></script>
+</head>
+
+<body>
+  <form id="form" class="layui-form layui-form-pane" action="">
+    <div class="layui-form-item" pane>
+      <label class="layui-form-label">奶茶名称</label>
+      <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">{{sname}}
+    </div>
+    <div class="layui-form-item" pane>
+      <label class="layui-form-label">奶茶价格</label>
+      <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">{{ sprice }}
+    </div>
+    <div class="layui-form-item" pane>
+      <label class="layui-form-label">奶茶原材料</label>
+      <input type="text" name="title" required lay-verify="required" autocomplete="off"
+        class="layui-input">{{materials}}
+    </div>
+    <div class="layui-form-item" pane>
+      <label class="layui-form-label">产品描述</label>
+      <input type="text" name="title" required lay-verify="required" autocomplete="off"
+        class="layui-input">{{introduction}}
+    </div>
+  </form>
+  <script>
+    // 这个是获取上一面的url的参数
+    var theParam = new Object();
+    var url = decodeURI(window.location.search);// 当前请求的url的参数部分
+    // console.log("1111111111");
+    // console.log(url);  // 结果 ?id=1&sname=芋圆波波奶茶
+    function getUrlParam() {
+      if (url.indexOf("?") != -1) { //确保‘？’不是最后一个字符串，即携带的参数不为空
+        var str = url.substr(1); //substr是字符串的用法之一，抽取指定字符的数目，这里抽取？后的所有字符
+        strs = str.split("&"); //将获取到的字符串从&分割，输出参数数组，即输出[参数1=xx,参数2=xx,参数3=xx,...]的数组形式
+        for (var i = 0; i < strs.length; i++) { //遍历参数数组
+          theParam[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]); //这里意思是抽取每个参数等号后面的值，unescape是解码的意思
+        }
+      }
+      // console.log("2222222222");
+      // console.log(theParam);
+
+      return theParam; //返回参数值
+    }
+    getUrlParam();
+    var param = getUrlParam();
+    console.log(param.id + param.sname);
+
+    var app1 = new Vue({
+      el: "#form",
+      data: {
+        'sname': param.sname,
+        'sprice': param.sprice,
+        'materials': param.materials,
+        'introduction': param.introduction
+      },
+    });
+
+  </script>
+
+</body>
+
+</html>
