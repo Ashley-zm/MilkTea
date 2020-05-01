@@ -15,8 +15,33 @@
 </head>
 
 <body>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+        <legend>我的权限</legend>
+    </fieldset>
+    <table id="tab" style="width: 80%; position: absolute;left: 10%;" class="layui-table" lay-even="" lay-skin="nob">
+        <colgroup>
+            <col width="150">
+            <col width="150">
+            <col width="200">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>权限</th>
+                <th>描述</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="(item, index) in items" :key="index">
+                <td>{{index+1}}</td>
+                <td>{{item.menutext}}</td>
+                <td>{{item.murl}}</td>
+            </tr>
+        </tbody>
+    </table>
     <hr />
-    <table id="tab" border="1px" width="50%" cellspacing="0px" cellpadding="10px" align="center">
+    <!-- <table id="tab" border="1px" width="50%" cellspacing="0px" cellpadding="10px" align="center">
         <thead>
             <tr>
                 <td>序号</td>
@@ -31,10 +56,9 @@
                 <td>{{item.murl}}</td>
             </tr>
         </tbody>
-    </table>
+    </table> -->
 
     <script>
-
         console.log(localStorage.getItem("uid"));
         var uid = localStorage.getItem("uid");
         var app1 = new Vue({
