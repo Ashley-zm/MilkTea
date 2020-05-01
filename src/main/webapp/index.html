@@ -3,19 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>naicha</title>
+    <title>奶茶店</title>
+    <link rel="icon" href="img/header.png" sizes="32x32">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="layui/css/layui.css" media="all">
     <script src="layui/layui.all.js"></script>
     <script src="layui/layui.js"></script>
     <script src="js/jquery-3.3.1.js"></script>
-
 </head>
 
 <body class="layui-layout-body" style="overflow: hidden">
     <div class="layui-layout layui-layout-admin">
         <div class="layui-header">
-            <div class="layui-logo">奶茶自主管理系统</div>
+            <div class="layui-logo">
+                <img src="img/header.png" alt="" style="width: 15%;margin:  1px 8px 12px;">
+                <a href="" style="color: coral;">奶茶自主管理系统</a></div>
             <ul class="layui-nav layui-layout-left">
                 <li class="layui-nav-item"><a href="">芋泥波波奶茶，不要芋泥，不要奶茶，只要(●´З｀●)</a></li>
             </ul>
@@ -35,7 +37,10 @@
             </ul>
         </div>
         <script>
-            console.log(localStorage.getItem("uid"));
+            // 获取的登录信息
+            var uid = localStorage.getItem("uid");
+            console.log(uid);
+            localStorage.setItem("uid", uid);
             console.log(localStorage.getItem("realname"));
             var usern = document.getElementById("usern");
             var userm = document.getElementById("userm");
@@ -53,29 +58,34 @@
                     <li class="layui-nav-item layui-nav-itemed">
                         <a id="df" href="view/user.html">我的管理</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="view/table-vue.html">商品管理</a></dd>
-                            <dd><a href="view/table.html">员工管理</a></dd>
+                            <dd><a href="view/goods_table.html">商品管理 </a></dd>
+                            <dd><a href="view/table-vue.html">员工管理</a></dd>
                             <dd><a href="javascript:;">用户管理</a></dd>
-                            <dd><a href="">订单管理</a></dd>
+                            <dd><a href="view/trole_table.html">我的权限</a></dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
-                        <a href="javascript:;">解决方案</a>
+                        <a href="javascript:;">库存管理</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="">移动模块</a></dd>
-                            <dd><a href="">后台模版</a></dd>
-                            <dd><a href="">电商平台</a></dd>
+                            <dd><a href="">材料入库</a></dd>
+                            <dd><a href="">入库退货</a></dd>
+                            <dd><a href="">当前库存</a></dd>
                         </dl>
                     </li>
-                    <li class="layui-nav-item"><a href="">云市场</a></li>
-                    <li class="layui-nav-item"><a href="">社区</a></li>
+                    <li class="layui-nav-item"><a href="">财务管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="">库存总金额</a></dd>
+                            <dd><a href="">消费营业额</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a id="cuxiao" href="view/cuxiao.html">促销&积分策略</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="layui-body">
             <!-- 内容主体区域 -->
-            <iframe src="view/user.html" id="iframeMain" style="width: 100%; height:100%;"></iframe>
+            <iframe src="view/user.html" id="iframeMain" style="width: 100%; height: 98%; border: none;"></iframe>
         </div>
         <script>
             // 页面跳转，框架不变，通过修改layui-body中的iframe中的src的路径来渲染这个
@@ -94,12 +104,19 @@
                     $("#iframeMain").attr("src", $(this).attr("href"));
 
                 })
+                //促销
+                $("#cuxiao").click(function (e) {
+                    e.preventDefault();
+                    alert(this.href);
+                    $("#iframeMain").attr("src", $(this).attr("href"));
+
+                })
             });
         </script>
 
         <div class="layui-footer" style="text-align:center;">
             <!-- 底部固定区域 -->
-            © zhumei.com - 我的奶茶屋房子
+            © zhumei.com - 我的奶茶屋❀
         </div>
     </div>
     <script>
