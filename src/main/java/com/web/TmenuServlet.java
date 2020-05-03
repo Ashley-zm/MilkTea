@@ -28,6 +28,5 @@ public class TmenuServlet extends HttpServlet {
         out.close();
 //        request.setAttribute("table", l);
 //        request.getRequestDispatcher("/table.html").forward(request, response);
-
     }
 }
