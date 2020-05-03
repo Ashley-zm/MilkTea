@@ -39,9 +39,9 @@
         <script>
             // 获取的登录信息
             var uid = localStorage.getItem("uid");
-            console.log(uid);
+            // console.log(uid);
             localStorage.setItem("uid", uid);
-            console.log(localStorage.getItem("realname"));
+            // console.log(localStorage.getItem("realname"));
             var usern = document.getElementById("usern");
             var userm = document.getElementById("userm");
             usern.style.display = "inline";
@@ -94,20 +94,20 @@
                 $("#jump dd>a").click(function (e) {
                     // $("#test1").style.display = none;
                     e.preventDefault();
-                    alert(this.href);
+                    // alert(this.href);
                     $("#iframeMain").attr("src", $(this).attr("href"));
                 });
                 // df 是固定一个起始页面为轮播图
                 $("#df").click(function (e) {
                     e.preventDefault();
-                    alert(this.href);
+                    // alert(this.href);
                     $("#iframeMain").attr("src", $(this).attr("href"));
 
                 })
                 //促销
                 $("#cuxiao").click(function (e) {
                     e.preventDefault();
-                    alert(this.href);
+                    // alert(this.href);
                     $("#iframeMain").attr("src", $(this).attr("href"));
 
                 })
