@@ -1,4 +1,4 @@
-package com.itheima.manage.common.util;
+package com.pojo;
 
 /**
  * 分页类
@@ -12,7 +12,7 @@ public class Page {
     private int total;// 从数据库查处的总记录数
 
     // 每页查询的数量条
-    private int size;
+    public int size;
 
     // 下页
     @SuppressWarnings("unused")
@@ -26,8 +26,8 @@ public class Page {
     private int rpage;
     
     //从哪条开始查
-    private int start;
-    
+    public int start;
+
     public Page() {
         super();
     }
