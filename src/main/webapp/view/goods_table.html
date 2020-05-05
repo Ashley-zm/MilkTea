@@ -139,10 +139,10 @@
 
                 // 分页
                 // laypage.render({
-                //     elem: 'test1',//注意，这里的 test1 是 ID，不用加 # 号
+                //     elem: 'userTable',//注意，这里的 test1 是 ID，不用加 # 号
                 //     count: 50,//数据总数，从服务端得到
                 //     // limit: limit,
-                //     limit: 10,
+                //     limit: 16,
                 //     curr: 1,
                 //     // curr: current_page,
                 //     theme: '#4e66f1'
@@ -160,19 +160,18 @@
                     even: true, //隔行背景
                     cellMinWidth: 80, //全局定义常规单元格的最小宽度，layui 2.2.1 新增
                     page: true, //开启分页
-                    // limit: 3, //每页默认显示条数
+                    limit: 15, //每页默认显示条数
                     // where: {//发送条件值
                     //     id: 1,
                     // },
-                    // limits: [3, 4, 5],//下拉框页码中的值，
+                    limits: [15, 25, 35, 45, 55],//下拉框页码中的值，
                     parseData: function (res) {
-                        // alert(res);
+                        console.log(res);
                         return {
                             "code": 0, //数据状态
                             "msg": "", //状态信息
-                            "count": 50,//数据总数
-                            "limit": 10,
-                            "limits": [5, 10, 15],
+                            "count": "30",//数据总数
+                            // "limits": [5, 10, 15],
                             data: res
                             // "code": res.status, //数据状态
                             // "msg": res.message, //状态信息
@@ -190,6 +189,7 @@
                         , { fixed: 'right', title: '操作', toolbar: '#userBar', width: "17%" }
                     ]],
                     done: function (res, curr, count) {
+                        console.log(count);
                         // alert(count);//后台url返回的json字符串 alert(curr);//当前页 alert(count);//数据总条数 
                     },
                 });
