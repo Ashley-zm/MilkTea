@@ -13,11 +13,6 @@
     <script src="../js/jquery-3.3.1.js"></script>
     <script src="../js/common.js"></script>
     <style>
-        #formBox {
-            width: '40%';
-            height: 370px;
-        }
-
         #name {
             float: left;
             width: 14%;
@@ -35,7 +30,7 @@
     <!-- 查询-->
     <div class="layui-row">
         <form class="layui-form layui-col-md12 x-so" id="ad_search">
-            <p style="float: left; margin:2% 0% 5px 1%;">奶茶：</p><input id="name" type="text" name="name"
+            <p style="float: left; margin:2% 0% 5px 1%;">搜索奶茶：</p><input id="name" type="text" name="name"
                 placeholder="请输入奶茶名称" autocomplete="off" class="layui-input">
             <button id="search" class="layui-btn" lay-submit="" lay-filter="search"><i
                     class="layui-icon">&#xe615;</i></button>
@@ -102,7 +97,7 @@
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <div class="layui-input-block" style="margin-top: 3%;">
+                    <div class="layui-input-block" style="margin-top: 6%;margin-left: 34%;">
                         <button type="submit" class="layui-btn" lay-submit="" lay-filter="ad_submit"
                             @click="submit()">立即提交</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
@@ -111,6 +106,8 @@
         </div>
     </div>
     <!-- 添加区域结束 -->
+    <div id="test1"></div>
+
     <script>
         $(function () {
             var index;//layer.open 打开窗口后的索引，通过layer.close(index)的方法可关闭
@@ -123,12 +120,12 @@
                 index = layer.open({  //layer提供了5种层类型。可传入的值有：0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
                     type: 1,
                     title: title,
-                    area: ['25%', '55%'],//类型：String/Array，默认：'auto'  只有在宽高都定义的时候才不会自适应
+                    area: ['450px', '350px'],//类型：String/Array，默认：'auto'  只有在宽高都定义的时候才不会自适应
                     // area: [w+'px', h +'px'],
                     fix: false, //不固定
                     maxmin: true,//开启最大化最小化按钮
                     shadeClose: true,//点击阴影处可关闭
-                    shade: 0.4,//背景灰度
+                    shade: 0.3,//背景灰度
                     skin: 'layui-layer-rim', //加上边框
                     content: $("#formBox").html()
                 });
@@ -142,8 +139,13 @@
 
                 // 分页
                 // laypage.render({
-                //     elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
-                //     , count: 50 //数据总数，从服务端得到
+                //     elem: 'test1',//注意，这里的 test1 是 ID，不用加 # 号
+                //     count: 50,//数据总数，从服务端得到
+                //     // limit: limit,
+                //     limit: 10,
+                //     curr: 1,
+                //     // curr: current_page,
+                //     theme: '#4e66f1'
                 // });
 
                 // 表格
@@ -151,24 +153,36 @@
                     elem: '#userTable',  //渲染目标对象
                     id: 'tableReload',//表格重载
                     url: '../GoodsServlet',  //数据接口
-                    // , dataType: "json"
+                    method: 'post',
+                    dataType: "json",
                     title: '奶茶用品列表',//数据导出时的标题
-                    page: true, //开启分页
                     toolbar: "#userToolBar", //开启头工具栏
                     even: true, //隔行背景
                     cellMinWidth: 80, //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                    page: true, //开启分页
+                    // limit: 3, //每页默认显示条数
+                    // where: {//发送条件值
+                    //     id: 1,
+                    // },
+                    // limits: [3, 4, 5],//下拉框页码中的值，
                     parseData: function (res) {
                         // alert(res);
                         return {
                             "code": 0, //数据状态
                             "msg": "", //状态信息
-                            "count": 1000,//数据总数
+                            "count": 50,//数据总数
+                            "limit": 10,
+                            "limits": [5, 10, 15],
                             data: res
+                            // "code": res.status, //数据状态
+                            // "msg": res.message, //状态信息
+                            // "count": res.total,//数据总数
+                            // data: res.data.item//解析数据列表
                         }
                     },
                     cols: [[
                         { type: 'checkbox', fixed: 'left', LAY_CHECKED: 'true' },
-                        { field: 'id', width: "5%", title: 'ID', sort: true }
+                        { field: 'id', width: "5%", title: 'ID', unresize: true, sort: true }
                         , { field: 'sname', width: "12%", title: '奶茶名称' }
                         , { field: 'sprice', width: "6%", title: '价格 ', sort: true }
                         , { field: 'materials', width: "26.6%", title: '奶茶原材料' }
@@ -176,8 +190,19 @@
                         , { fixed: 'right', title: '操作', toolbar: '#userBar', width: "17%" }
                     ]],
                     done: function (res, curr, count) {
-                        alert(count);//后台url返回的json字符串 alert(curr);//当前页 alert(count);//数据总条数 
-                    }
+                        // alert(count);//后台url返回的json字符串 alert(curr);//当前页 alert(count);//数据总条数 
+                    },
+                });
+                //监听行单击事件（单击事件：row 双击事件为：rowDouble）
+                table.on('rowDouble(userTable)', function (obj) {
+                    var data = obj.data;
+
+                    layer.alert(JSON.stringify(data), {
+                        title: '当前行数据：'
+                    });
+
+                    //标注选中样式
+                    obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
                 });
                 // 监听头部工具栏事件
                 table.on('toolbar(userTable)', function (obj) {
@@ -319,7 +344,10 @@
                         data: { "id": id, "sname": sname, "sprice": sprice, "materials": materials, "introduction": introduction },//提交的数据
                         dataType: "json",//返回的数据类型格式
                         success: function (msg) {
-                            if (msg.success) {  //成功
+                            console.log(msg);//{msg:"success"}
+                            console.log(msg.msg);//"success"
+
+                            if (msg.msg == 'success') {  //成功
                                 console.log("成功");
                                 layer.msg(msg.msg, { icon: 1, time: 1500 });
                                 table.reload('tableReload');//数据表格重载
@@ -337,25 +365,51 @@
                 });
                 //监听提交 lay-filter="search"
                 form.on('submit(search)', function (data) {
+                    console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+                    console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+                    console.log(data.field) //当前from表单所提交的所有字段， 名值对形式：{name: value}
+
                     layer.msg(JSON.stringify(data.field));//表格数据序列化
+
                     var formData = data.field;
                     console.debug(formData);
-                    var id = formData.id,
-                        sname = formData.sname,
-                        sprice = formData.sprice,
-                        materials = formData.materials,
-                        introduction = formData.introduction;
-                    //数据表格重载
+                    console.log(formData);
+
+                    var name = formData.name, materials = formData.name;
+                    console.log(name);
+                    console.log(materials);
+                    // layui有自带的ajax
+                    // $.ajax({
+                    //     url: '../GoodsServlet?action=select',//后台做模糊搜索接口路径
+                    //     method: 'post',
+                    //     data: { 'sname': name, 'materials': materials },
+                    //     success: function (res) {
+                    //         console.log(msg);//{msg:"success"}
+                    //         console.log(msg.msg);//"success"
+
+                    //         if (msg.msg == 'success') {  //成功
+                    //             table.reload('tableReload');//数据表格重载
+                    //             layer.close(index);//关闭弹出层
+                    //         } else {  //失败
+                    //             layer.alert(msg.msg, { icon: 2 }, function () {
+                    //                 layer.close(index);
+                    //                 // window.location.reload();
+                    //             });
+                    //         }
+                    //     }
+                    // })
+                    // //数据表格重载
                     table.reload('tableReload', {
                         page: {
                             curr: 1 //重新从第 1 页开始
                         }
-                        , where: {//这里传参  向后台
-                            sname: sname,
-                            materials: materials
+                        , where: {//这里传参向后台
+                            'sname': name,
+                            'materials': materials
                         }
-                        , url: '/menu/page'//后台做模糊搜索接口路径
+                        , url: '../SelectGoodServlet'//后台做模糊搜索接口路径
                         , method: 'post'
+                        ,
                     });
                     return false;//false：阻止表单跳转  true：表单跳转
                 });
