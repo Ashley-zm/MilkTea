@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package com.pojo;
+=======
+package com.itheima.manage.common.util;
+>>>>>>> 69ac69387a55c51467a68361090b4ee07efcf6e4
 
 /**
  * 分页类
@@ -12,7 +16,11 @@ public class Page {
     private int total;// 从数据库查处的总记录数
 
     // 每页查询的数量条
+<<<<<<< HEAD
     public int size;
+=======
+    private int size;
+>>>>>>> 69ac69387a55c51467a68361090b4ee07efcf6e4
 
     // 下页
     @SuppressWarnings("unused")
@@ -26,8 +34,13 @@ public class Page {
     private int rpage;
     
     //从哪条开始查
+<<<<<<< HEAD
     public int start;
 
+=======
+    private int start;
+    
+>>>>>>> 69ac69387a55c51467a68361090b4ee07efcf6e4
     public Page() {
         super();
     }

@@ -3,7 +3,7 @@ package com.pojo;
 import java.io.Serializable;
 import java.util.List;
 
-public class Page implements Serializable {
+public class Page_ini implements Serializable {
     private int currentPage=1;//当前页
     private int pageCount=10;//每页显示的行数（查询返回的行数）默认每页显示4行
     private int totalCount;//总记录数

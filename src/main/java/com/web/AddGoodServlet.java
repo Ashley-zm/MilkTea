@@ -32,8 +32,8 @@ public class AddGoodServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
-        System.out.println("--------------"+l);
         out.println(l);
+        System.out.println("--------------"+l);
         out.flush();
         out.close();
     }
