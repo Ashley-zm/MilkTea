@@ -38,7 +38,7 @@
     </div>
     <!-- 
         此处的 lay-filte="userTable" 
-        对应下面jstable.on('toolbar(userTable)'..
+        对应下面js table.on('toolbar(userTable)'..
     -->
     <table class="layui-hide" id="userTable" lay-filter="userTable"></table>
 
@@ -52,8 +52,8 @@
 
     <!-- 行工具栏按钮开始 -->
     <div id="userBar" style="display:none;">
-        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail"><i class="layui-icon">&#xe63c;</i>查看</a>
-        <a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon">&#xe642;编辑</a>
+        <a class="layui-btn layui-btn-xs" lay-event="detail"><i class="layui-icon">&#xe63c;</i>查看</a>
+        <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="edit"><i class="layui-icon">&#xe642;编辑</a>
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
     </div>
     <!-- 行工具栏按钮开始 -->
@@ -71,33 +71,33 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">奶茶名称</label>
                     <div class="layui-input-block">
-                        <input type="text" name="sname" id="sname" lay-verify="required" placeholder="请输入奶茶名称"
+                        <input type="text" name="sname" value="" id="sname" lay-verify="required" placeholder="请输入奶茶名称"
                             autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">奶茶价格</label>
                     <div class="layui-input-block">
-                        <input type="text" name="sprice" id="sprice" lay-verify="number" placeholder="请输入奶茶价格(元)"
-                            autocomplete="off" class="layui-input">
+                        <input type="text" name="sprice" value="" id="sprice" lay-verify="number"
+                            placeholder="请输入奶茶价格(元)" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">奶茶原材料</label>
                     <div class="layui-input-block">
-                        <input type="text" name="materials" lay-verify="required" placeholder="请输入奶茶原材料"
+                        <input type="text" name="materials" value="" lay-verify="required" placeholder="请输入奶茶原材料"
                             autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">产品描述</label>
                     <div class="layui-input-block">
-                        <input type="text" name="introduction" lay-verify="" placeholder="请输入产品描述" autocomplete="off"
-                            class="layui-input">
+                        <input type="text" name="introduction" value="" lay-verify="" placeholder="请输入产品描述"
+                            autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <div class="layui-input-block" style="margin-top: 6%;margin-left: 34%;">
+                    <div class="layui-input-block" style="margin-top: 6%;margin-left: 10%;">
                         <button type="submit" class="layui-btn" lay-submit="" lay-filter="ad_submit"
                             @click="submit()">立即提交</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
@@ -106,23 +106,75 @@
         </div>
     </div>
     <!-- 添加区域结束 -->
-    <div id="test1"></div>
+    <div class="layui-row" id="ed_formBox"
+        style="display:none;position: absolute;top: 0; left: 0; bottom: 0; right: 0;">
+        <div class="layui-col-md11">
+            <form id="ed_form" class="layui-form" action="" style="margin-top: 20px;text-align: center;">
+                <!--隐藏字段id,区分添加和修改-->
+                <input type="hidden" name="id" id="id" />
+                <!-- lay-verify验证的值：
+                        required（必填项）,phone（手机号）,email（邮箱）
+                        url（网址）,number（数字）,date（日期）,identity（身份证）
+                        自定义值 -->
+                <div class="layui-form-item">
+                    <label class="layui-form-label">奶茶名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sname" id="ed_sname" lay-verify="required" placeholder="请输入奶茶名称"
+                            autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">奶茶价格</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sprice" id="ed_sprice" lay-verify="number" placeholder="请输入奶茶价格(元)"
+                            autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">奶茶原材料</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="ed_materials" name="materials" lay-verify="required"
+                            placeholder="请输入奶茶原材料" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">产品描述</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="ed_introduction" name="introduction" lay-verify="" placeholder="请输入产品描述"
+                            autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block" style="margin-top: 6%;margin-left: 10%;">
+                        <button type="submit" class="layui-btn" lay-submit="" lay-filter="ed_submit"
+                            @click="submit()">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+            </form>
+        </div>
+    </div>
 
     <script>
+
         $(function () {
+            // 编辑表单
+            function edit_form() {
+
+            }
             var index;//layer.open 打开窗口后的索引，通过layer.close(index)的方法可关闭
-            //表单弹出层
-            function ad_form(title, url, w, h) {
-                if (title == null || title == '') { title = false; };
-                if (url == null || url == '') { };// url="404.html";
-                if (w == null || w == '') { w = ($(window).width() * 0.9); };
-                if (h == null || h == '') { h = ($(window).height() - 50); };
+            //添加表单弹出层
+            function ad_form(sname, sprice, materials, introduction) {
+                if (sname == null || sname == '') { sname = false; };
+                if (sprice == null || sprice == '') { };// url="404.html";
+                if (materials == null || materials == '') { materials = ($(window).width() * 0.9); };
+                if (introduction == null || introduction == '') { introduction = ($(window).height() - 50); };
                 index = layer.open({  //layer提供了5种层类型。可传入的值有：0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
                     type: 1,
-                    title: title,
+                    sname: sname,
                     area: ['450px', '350px'],//类型：String/Array，默认：'auto'  只有在宽高都定义的时候才不会自适应
-                    // area: [w+'px', h +'px'],
+                    title: "添加奶茶信息",
                     fix: false, //不固定
+                    anim: 5,//渐显示
                     maxmin: true,//开启最大化最小化按钮
                     shadeClose: true,//点击阴影处可关闭
                     shade: 0.3,//背景灰度
@@ -137,17 +189,6 @@
                 var layer = layui.layer;//弹层
                 var laypage = layui.laypage; //分页
 
-                // 分页
-                // laypage.render({
-                //     elem: 'userTable',//注意，这里的 test1 是 ID，不用加 # 号
-                //     count: 50,//数据总数，从服务端得到
-                //     // limit: limit,
-                //     limit: 16,
-                //     curr: 1,
-                //     // curr: current_page,
-                //     theme: '#4e66f1'
-                // });
-
                 // 表格
                 table.render({
                     elem: '#userTable',  //渲染目标对象
@@ -161,16 +202,13 @@
                     cellMinWidth: 80, //全局定义常规单元格的最小宽度，layui 2.2.1 新增
                     page: true, //开启分页
                     limit: 15, //每页默认显示条数
-                    // where: {//发送条件值
-                    //     id: 1,
-                    // },
                     limits: [15, 25, 35, 45, 55],//下拉框页码中的值，
                     parseData: function (res) {
                         console.log(res);
                         return {
                             "code": 0, //数据状态
                             "msg": "", //状态信息
-                            "count": "30",//数据总数
+                            "count": "35",//数据总数
                             // "limits": [5, 10, 15],
                             data: res
                             // "code": res.status, //数据状态
@@ -189,17 +227,18 @@
                         , { fixed: 'right', title: '操作', toolbar: '#userBar', width: "17%" }
                     ]],
                     done: function (res, curr, count) {
-                        console.log(count);
+                        // console.log(count);
                         // alert(count);//后台url返回的json字符串 alert(curr);//当前页 alert(count);//数据总条数 
                     },
                 });
-                //监听行单击事件（单击事件：row 双击事件为：rowDouble）
+                //监听行双击事件（单击事件：row 双击事件为：rowDouble）
                 table.on('rowDouble(userTable)', function (obj) {
                     var data = obj.data;
+                    layer.alert('奶茶名称：' + sname + '<br>' + '奶茶价格：' + data.sprice + '<br>' + '奶茶原材料：' + data.materials + '<br>' + '介绍说明：' + data.introduction);
 
-                    layer.alert(JSON.stringify(data), {
-                        title: '当前行数据：'
-                    });
+                    // layer.alert(JSON.stringify(data), {
+                    //     title: '当前行数据：'
+                    // });
 
                     //标注选中样式
                     obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
@@ -216,7 +255,7 @@
                         case 'add':
                             layer.msg('添加');
                             ad_form('添加奶茶信息', 'url在本页面不需要管', '', '');//数据回显
-                            $("#ad_form").setForm({ id: data.id, sname: data.sname, sprice: data.sprice, introduction: data.introduction, introduction: data.introduction });
+                            $("#ad_form").setForm({ id: data.id, sname: data.sname, sprice: data.sprice, materials: data.materials, introduction: data.introduction });
                             // $("#ad_form").setForm({ id: '' });
                             break;
                         case 'delete':
@@ -267,9 +306,6 @@
                 //监听工具条
                 table.on('tool(userTable)', function (obj) { //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
                     var data = obj.data; //获得当前行数据
-                    // console.log("+++++++++++");
-                    // console.log(data);
-                    // console.log("+++++++++++");
                     var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）                 
                     var tr = obj.tr; //获得当前行 tr 的DOM对象
                     if (layEvent === 'del') { //删除
@@ -279,17 +315,17 @@
                             layer.close(index);
                             //向服务端发送删除指令
                             //向服务端发送删除指令，在这里可以使用Ajax异步
-                            $.post("menu/delete", { id: data.id }, function (ret) {
-                                if (ret.code == "1") {//删除成功，刷新当前页表格
-                                    layer.msg(ret.msg, { icon: 1, time: 1500 }, function () {
+                            $.post("../DeleteGoodServlet", { id: data.id }, function (ret) {
+                                let retJson = JSON.parse(ret);
+                                table.reload('tableReload');//数据表格重载
+                                if (retJson.msg == 'success') {//删除成功，刷新当前页表格
+                                    layer.msg(retJson.msg, { icon: 1, time: 1500 }, function () {
                                         obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
                                         layer.close(index);
-                                        // $(".layui-laypage-btn").click();//点击分页刷新当前页
                                     });
-                                } else if (ret.code == "-1") {  //删除失败
-                                    layer.alert(ret.msg, { icon: 2 }, function () {
+                                } else if (retJson.msg == 'error') {  //删除失败
+                                    layer.alert(retJson.msg, { icon: 2 }, function () {
                                         layer.close(index);
-                                        // $(".layui-laypage-btn").click();
                                         window.location.reload();
                                     });
                                 }
@@ -297,41 +333,118 @@
                         });
                     } else if (layEvent === 'edit') { //编辑
                         layer.msg("编辑");
-                        // console.log("===" + data.sname);
-                        // console.log("===" + data.sprice);
-                        ad_form('编辑奶茶信息', 'url这个值不管', 500, 400);
-                        //数据回显
-                        $("#ad_form").setForm({ id: data.id, sname: data.sname, sprice: data.sprice, introduction: data.introduction, introduction: data.introduction });
-                    } else if (layEvent === 'detail') {
+                        console.log("----------" + data.id);
+                        console.log("===" + data.sname);
+                        console.log("===" + data.sprice)
+                        $('#id').attr('value', data.id);
+                        $('#ed_sname').attr('value', data.sname);
+                        $('#ed_sprice').attr('value', data.sprice);
+                        $('#ed_materials').attr('value', data.materials);
+                        $('#ed_introduction').attr('value', data.introduction);
+
+                        console.log($('#ed_sname').val());
+                        var index = layer.index;
+                        layer.open({
+                            //layer提供了5种层类型。可传入的值有：0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+                            type: 1,
+                            title: "修改奶茶信息",
+                            area: ['420px', '360px'],
+                            content: $("#ed_formBox").html()//引用的弹出层的页面层的方式加载修改界面表单
+                        });
+                        ed_Sub(obj, data);
+                        layer.close(index);
+                    } else if (layEvent === 'detail') {//查看信息
                         //json字符串转换成Json数据 eval("("+jsonStr+")")  /JSON.parse(jsonStr)
                         var jsonstr = JSON.stringify(data);//json数据转字符串  JSON.stringify(obj)
-                        layer.alert(jsonstr);
+                        // alert(data.sname);
+                        let sname = data.sname;
+                        layer.alert('奶茶名称：' + '<input style="padding:8px;margin:14px 0 0 14px;" value=' + sname + '><br>' + '奶茶价格：' + '<input style="padding:8px;margin:14px 0 0 14px" value=' + data.sprice + '><br>' + '奶茶原材料：' + '<input style="padding:8px;margin-top:14px;" value=' + data.materials + '><br>' + '介绍说明：' + '<br><div style="padding:10px;" >' + data.introduction + '</div>', {
+                            title: '查看奶茶信息',
+                            area: ['420px', '360px']
+                        });
                     }
 
                 });
                 // 监听单元格编辑
-                table.on('edit(userTable)', function (obj) { //注：edit是固定事件名，test是table原始容器的属性 lay-filter="对应的值"
+                function ed_Sub(obj, data) {
+                    form.on('submit(ed_submit)', function (data) { //注：edit是固定事件名，test是table原始容器的属性 lay-filter="对应的值"
 
-                    var value = obj.value //得到修改后的值
-                        , data = obj.data //得到所在行所有键值
-                        , field = obj.field; //得到字段
-                    layer.msg('[ID: ' + data.id + '] ' + field + ' 字段更改为：' + value);
-                    console.log(obj.value); //得到修改后的值
-                    console.log(obj.data); //当前编辑的字段名
-                    console.log(obj.field); //所在行的所有相关数据  
-                    //发送post请求更新数据
-                    $.post("url?" + obj.field + "&id=" + obj.data.id, function (json) {
+                        // var value = data.value //得到修改后的值
+                        //     , data = data.data//得到所在行所有键值
+                        //     , field = data.field; //得到字段
+                        // var
+                        //     // layer.msg('[ID: ' + data.id + '] ' + field + ' 字段更改为：' + value);
+                        //     console.log(data.value); //得到修改后的值
+                        // console.log(data.data); //当前编辑的字段名
+                        // console.log(data.field); //所在行的所有相关数据  
+                        //发送post请求更新数据
+                        // $.post("url?" + data.field + "&id=" + data.data.id, function (json) {
+                        // });
+                        var formData = data.field;
+                        var id = formData.id,
+                            sname = formData.sname,
+                            sprice = formData.sprice,
+                            materials = formData.materials,
+                            introduction = formData.introduction;
+                        // console.log("&&&&&&&&&&&&&&" + id);
+                        // console.log("&&&&&&&&&&&&&&" + sname);
+                        // console.log("&&&&&&&&&&&&&&" + sprice);
+                        // console.log("&&&&&&&&&&&&&&" + materials);
+                        // console.log("&&&&&&&&&&&&&&" + introduction);
+                        //动态向表传递赋值可以参看文章进行修改界面的更新前数据的显示，当然也是异步请求的要数据的修改数据的获取
+                        $.ajax({
+                            type: "post",  //数据提交方式（post/get）
+                            url: "../UpdateGoodServlet",  //提交到的url
+                            data: { "id": id, "sname": sname, "sprice": sprice, "materials": materials, "introduction": introduction },//提交的数据
+                            dataType: "json",//返回的数据类型格式
+                            success: function (msg) {
+                                console.log(msg);//{msg:"success"}
+                                console.log(msg.msg);//"success"
 
+                                if (msg.msg == 'success') {  //成功
+                                    console.log(index);
+                                    layer.msg(msg.msg, { icon: 1, time: 1500 });
+                                    setTimeout(function () {
+                                        data.update({
+                                            sname: data.field.sname,
+                                            sprice: data.field.sprice,
+                                            materials: data.field.materials,
+                                            introduction: data.field.introduction
+                                        });//修改成功修改表格数据不进行跳转
+                                        layer.closeAll();//关闭所有的弹出层
+                                    }, 1000);
+                                    table.reload('tableReload');//数据表格重载
+                                } else {  //失败
+                                    layer.alert(msg.msg, { icon: 2 }, function () {
+                                        // $(".layui-laypage-btn").click();//执行分页刷新当前页
+                                        layer.close(index);
+                                        // window.location.reload();
+                                    });
+                                }
+                            }
+                        });
                     });
-                });
+
+                }
 
                 // 表单
+                // 添加
                 //监听提交 lay-filter="ad_submit"
                 form.on('submit(ad_submit)', function (data) {
+                    /*
                     console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
                     console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
                     console.log(data.field) //当前from表单所提交的所有字段， 名值对形式：{name: value}
                     layer.msg(JSON.stringify(data.field));//表格数据序列化
+                    */
+                    /*
+                    问题：表单提交后无法自动关闭弹出层
+                    解决：通过layer.index 获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
+                        所以我们只需要获取最新的index来关闭弹出层
+                        js开始的位置我们定义了index，但是打开后弹出层后，我们无法引用进行close
+                    */
+                    var index = layer.index;
+                    // console.log(index);
                     var formData = data.field;
                     var id = formData.id,
                         sname = formData.sname,
@@ -348,10 +461,12 @@
                             console.log(msg.msg);//"success"
 
                             if (msg.msg == 'success') {  //成功
-                                console.log("成功");
+                                console.log(index);
                                 layer.msg(msg.msg, { icon: 1, time: 1500 });
                                 table.reload('tableReload');//数据表格重载
-                                layer.close(index);//关闭弹出层
+                                setTimeout(function () {
+                                    layer.close(index);//800m后自动关闭弹出层
+                                }, 800);
                             } else {  //失败
                                 layer.alert(msg.msg, { icon: 2 }, function () {
                                     // $(".layui-laypage-btn").click();//执行分页刷新当前页
@@ -363,41 +478,24 @@
                     });
                     return false;//false：阻止表单跳转  true：表单跳转
                 });
+                // 模糊查询
                 //监听提交 lay-filter="search"
                 form.on('submit(search)', function (data) {
+                    /*
                     console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
                     console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
                     console.log(data.field) //当前from表单所提交的所有字段， 名值对形式：{name: value}
-
+                    */
                     layer.msg(JSON.stringify(data.field));//表格数据序列化
 
                     var formData = data.field;
-                    console.debug(formData);
-                    console.log(formData);
+                    // console.debug(formData);
+                    // console.log(formData);
 
                     var name = formData.name, materials = formData.name;
-                    console.log(name);
-                    console.log(materials);
-                    // layui有自带的ajax
-                    // $.ajax({
-                    //     url: '../GoodsServlet?action=select',//后台做模糊搜索接口路径
-                    //     method: 'post',
-                    //     data: { 'sname': name, 'materials': materials },
-                    //     success: function (res) {
-                    //         console.log(msg);//{msg:"success"}
-                    //         console.log(msg.msg);//"success"
+                    // console.log(name);
+                    // console.log(materials);
 
-                    //         if (msg.msg == 'success') {  //成功
-                    //             table.reload('tableReload');//数据表格重载
-                    //             layer.close(index);//关闭弹出层
-                    //         } else {  //失败
-                    //             layer.alert(msg.msg, { icon: 2 }, function () {
-                    //                 layer.close(index);
-                    //                 // window.location.reload();
-                    //             });
-                    //         }
-                    //     }
-                    // })
                     // //数据表格重载
                     table.reload('tableReload', {
                         page: {

@@ -30,7 +30,6 @@ public class UpdateGoodServlet extends HttpServlet {
 
         System.out.println(sname);
         System.out.println(sprice);
-        response.setCharacterEncoding("utf-8");
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
         out.println(l);
