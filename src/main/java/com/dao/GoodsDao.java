@@ -42,9 +42,9 @@ public class GoodsDao {
 
     }
 //    删除商品
-public Boolean delete(String sname,String sprice,String materials,String introduction,String id){
-    String sql="update goods set sname=?,sprice=?,materials=?,introduction=? where id=?";
-    int num = DH.update(sql, new String[]{sname, sprice, materials, introduction,id});
+public Boolean delete(String id){
+    String sql="DELETE FROM goods where id=?";
+    int num = DH.update(sql, new String[]{id});
     if(num>0){
         return true;
     }
