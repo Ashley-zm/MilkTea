@@ -28,7 +28,6 @@ public class Page {
     
     //从哪条开始查
     public int start;
-
     public Page() {
         super();
     }
