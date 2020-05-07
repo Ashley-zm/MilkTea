@@ -23,6 +23,10 @@
             margin-top: 1.4%;
             margin-left: 2px;
         }
+
+        .layui-table-body {
+            overflow-x: hidden;
+        }
     </style>
 </head>
 
@@ -46,7 +50,10 @@
     <div style="display:none;" id="userToolBar">
         <!-- 在此处添加lay-event事件（add，delete） -->
         <button type="button" class="layui-btn layui-btn-sm " lay-event="add"><i class="layui-icon"></i>添加</button>
-        <button type="button" class="layui-btn layui-btn-sm" lay-event="delete"><i class="layui-icon"></i>批量删除</button>
+        <button type="button" class="layui-btn layui-btn-danger layui-btn-sm" lay-event="delete"><i
+                class="layui-icon"></i>批量删除</button>
+        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm" lay-event="refresh"><i
+                class="layui-icon">&#xe9aa;</i>刷新</button>
     </div>
     <!-- 头部工具栏按钮开始结束 -->
 
@@ -147,7 +154,7 @@
                 <div class="layui-form-item">
                     <div class="layui-input-block" style="margin-top: 6%;margin-left: 10%;">
                         <button type="submit" class="layui-btn" lay-submit="" lay-filter="ed_submit"
-                            @click="submit()">立即提交</button>
+                            @click="submit()">立即更新</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                     </div>
             </form>
@@ -201,14 +208,14 @@
                     even: true, //隔行背景
                     cellMinWidth: 80, //全局定义常规单元格的最小宽度，layui 2.2.1 新增
                     page: true, //开启分页
-                    limit: 15, //每页默认显示条数
+                    limit: 10, //每页默认显示条数
                     limits: [15, 25, 35, 45, 55],//下拉框页码中的值，
                     parseData: function (res) {
-                        console.log(res);
+                        // console.log(res);
                         return {
                             "code": 0, //数据状态
                             "msg": "", //状态信息
-                            "count": "35",//数据总数
+                            "count": "45",//数据总数
                             // "limits": [5, 10, 15],
                             data: res
                             // "code": res.status, //数据状态
@@ -299,6 +306,9 @@
 
                             }
                             break;
+                        case 'refresh':
+                            location.reload();
+                            break;
                     };
                 });
 
@@ -341,7 +351,6 @@
                         $('#ed_sprice').attr('value', data.sprice);
                         $('#ed_materials').attr('value', data.materials);
                         $('#ed_introduction').attr('value', data.introduction);
-
                         console.log($('#ed_sname').val());
                         var index = layer.index;
                         layer.open({
@@ -352,7 +361,6 @@
                             content: $("#ed_formBox").html()//引用的弹出层的页面层的方式加载修改界面表单
                         });
                         ed_Sub(obj, data);
-                        layer.close(index);
                     } else if (layEvent === 'detail') {//查看信息
                         //json字符串转换成Json数据 eval("("+jsonStr+")")  /JSON.parse(jsonStr)
                         var jsonstr = JSON.stringify(data);//json数据转字符串  JSON.stringify(obj)
@@ -377,45 +385,61 @@
                         //     console.log(data.value); //得到修改后的值
                         // console.log(data.data); //当前编辑的字段名
                         // console.log(data.field); //所在行的所有相关数据  
-                        //发送post请求更新数据
-                        // $.post("url?" + data.field + "&id=" + data.data.id, function (json) {
-                        // });
                         var formData = data.field;
                         var id = formData.id,
                             sname = formData.sname,
                             sprice = formData.sprice,
                             materials = formData.materials,
                             introduction = formData.introduction;
-                        // console.log("&&&&&&&&&&&&&&" + id);
-                        // console.log("&&&&&&&&&&&&&&" + sname);
-                        // console.log("&&&&&&&&&&&&&&" + sprice);
-                        // console.log("&&&&&&&&&&&&&&" + materials);
-                        // console.log("&&&&&&&&&&&&&&" + introduction);
+
+                        var index = layer.index;
+
+                        // //发送post请求更新数据
+                        // $.post("UpdateGoodServlet?" + "&id=" + id + "&sname=" + sname + "&sprice=" + sprice + "&materials=" + materials + "&introduction=" + introduction, function (msg) {
+
+                        //     let retJson = JSON.parse(msg);
+                        //     console.log("heihei" + retJson);
+
+                        // });
+                        console.log("&&&&&&&&&&&&&&" + id);
+                        console.log("&&&&&&&&&&&&&&" + sname);
+                        console.log("&&&&&&&&&&&&&&" + sprice);
+                        console.log("&&&&&&&&&&&&&&" + materials);
+                        console.log("&&&&&&&&&&&&&&" + introduction);
                         //动态向表传递赋值可以参看文章进行修改界面的更新前数据的显示，当然也是异步请求的要数据的修改数据的获取
                         $.ajax({
                             type: "post",  //数据提交方式（post/get）
                             url: "../UpdateGoodServlet",  //提交到的url
                             data: { "id": id, "sname": sname, "sprice": sprice, "materials": materials, "introduction": introduction },//提交的数据
-                            dataType: "json",//返回的数据类型格式
+                            // dataType: "json",//返回的数据类型格式
                             success: function (msg) {
                                 console.log(msg);//{msg:"success"}
-                                console.log(msg.msg);//"success"
-
-                                if (msg.msg == 'success') {  //成功
-                                    console.log(index);
-                                    layer.msg(msg.msg, { icon: 1, time: 1500 });
-                                    setTimeout(function () {
-                                        data.update({
-                                            sname: data.field.sname,
-                                            sprice: data.field.sprice,
-                                            materials: data.field.materials,
-                                            introduction: data.field.introduction
-                                        });//修改成功修改表格数据不进行跳转
-                                        layer.closeAll();//关闭所有的弹出层
-                                    }, 1000);
-                                    table.reload('tableReload');//数据表格重载
+                                var msgJson = JSON.parse(msg);
+                                console.log(msgJson.msg);//"success"
+                                if (msgJson.msg == 'success') {  //成功
+                                    layer.msg("更新成功", {
+                                        time: 3000,//显示的时间为3秒
+                                        icon: 1,
+                                    }, function () {
+                                        layer.close(index);
+                                    });
+                                    // layer.msg(msgJson.msg, { icon: 1, time: 1500 });
+                                    // alert("更新成功");
+                                    // setTimeout(function () {
+                                    //     layer.close(index);//800m后自动关闭弹出层
+                                    // }, 1000);
+                                    // setTimeout(function () {
+                                    //     data.update({
+                                    //         sname: data.field.sname,
+                                    //         sprice: data.field.sprice,
+                                    //         materials: data.field.materials,
+                                    //         introduction: data.field.introduction
+                                    //     });//修改成功修改表格数据不进行跳转
+                                    //     layer.closeAll();//关闭所有的弹出层
+                                    // }, 1000);
+                                    // table.reload('tableReload');//数据表格重载
                                 } else {  //失败
-                                    layer.alert(msg.msg, { icon: 2 }, function () {
+                                    layer.alert(msgJson.msg, { icon: 2 }, function () {
                                         // $(".layui-laypage-btn").click();//执行分页刷新当前页
                                         layer.close(index);
                                         // window.location.reload();
@@ -424,7 +448,6 @@
                             }
                         });
                     });
-
                 }
 
                 // 表单
@@ -466,7 +489,7 @@
                                 table.reload('tableReload');//数据表格重载
                                 setTimeout(function () {
                                     layer.close(index);//800m后自动关闭弹出层
-                                }, 800);
+                                }, 1000);
                             } else {  //失败
                                 layer.alert(msg.msg, { icon: 2 }, function () {
                                     // $(".layui-laypage-btn").click();//执行分页刷新当前页
@@ -486,7 +509,7 @@
                     console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
                     console.log(data.field) //当前from表单所提交的所有字段， 名值对形式：{name: value}
                     */
-                    layer.msg(JSON.stringify(data.field));//表格数据序列化
+                    // layer.msg(JSON.stringify(data.field));//表格数据序列化
 
                     var formData = data.field;
                     // console.debug(formData);

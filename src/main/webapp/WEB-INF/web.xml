@@ -29,6 +29,10 @@
         <servlet-name>UpdateGoodServlet</servlet-name>
         <servlet-class>com.web.UpdateGoodServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteGoodServlet</servlet-name>
+        <servlet-class>com.web.DeleteGoodServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
     <servlet-name>loginServlet</servlet-name>
     <url-pattern>/loginServlet</url-pattern>
@@ -52,6 +56,10 @@
     <servlet-mapping>
         <servlet-name>UpdateGoodServlet</servlet-name>
         <url-pattern>/UpdateGoodServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteGoodServlet</servlet-name>
+        <url-pattern>/DeleteGoodServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>login.html</welcome-file>
