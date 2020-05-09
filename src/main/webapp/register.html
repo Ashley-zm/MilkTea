@@ -4,15 +4,16 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Bootstrap Material Admin</title>
+	<title>奶茶舘</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="robots" content="all,follow">
-	<link rel="icon" href="img/header.jpg" sizes="32x32">
+	<link rel="icon" href="img/header.png" sizes="32x32">
 	<!-- Bootstrap CSS-->
 	<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
 	<link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+
 </head>
 
 <body>
@@ -36,15 +37,20 @@
 						<div class="form d-flex align-items-center">
 							<div class="content">
 								<div class="form-group">
-									<input id="register-username" class="input-material" type="text" name="registerUsername"
-										placeholder="请输入用户名/姓名">
+									<input id="register-username" class="input-material" type="text" name="uname" placeholder="请输用户名/姓名">
 									<div class="invalid-feedback">
 										用户名必须在2~10位之间
 									</div>
 								</div>
 								<div class="form-group">
-									<input id="register-password" class="input-material" type="password" name="registerPassword"
-										placeholder="请输入密码">
+									<input id="register-realname" class="input-material" type="text" name="realname"
+										placeholder="请输入真实姓名">
+									<div class="invalid-feedback">
+										用户名必须在2~10位之间
+									</div>
+								</div>
+								<div class="form-group">
+									<input id="register-password" class="input-material" type="password" name="upwd" placeholder="请输入密码">
 									<div class="invalid-feedback">
 										密码必须在6~10位之间
 									</div>
@@ -75,13 +81,14 @@
 			/*错误class  form-control is-invalid
 			正确class  form-control is-valid*/
 			var flagName = false;
+			var flagName1 = false;
 			var flagPas = false;
 			var flagPass = false;
 			/*验证用户名*/
-			var name, passWord, passWords;
+			var uname, realname, passWord, passWords;
 			$("#register-username").change(function () {
-				name = $("#register-username").val();
-				if (name.length < 2 || name.length > 10) {
+				uname = $("#register-username").val();
+				if (uname.length < 2 || uname.length > 10) {
 					$("#register-username").removeClass("form-control is-valid")
 					$("#register-username").addClass("form-control is-invalid");
 					flagName = false;
@@ -89,6 +96,19 @@
 					$("#register-username").removeClass("form-control is-invalid")
 					$("#register-username").addClass("form-control is-valid");
 					flagName = true;
+				}
+			})
+			/*验证真实用户名*/
+			$("#register-realname").change(function () {
+				realname = $("#register-realname").val();
+				if (realname.length < 2 || realname.length > 10) {
+					$("#register-realname").removeClass("form-control is-valid")
+					$("#register-realname").addClass("form-control is-invalid");
+					flagName1 = false;
+				} else {
+					$("#register-realname").removeClass("form-control is-invalid")
+					$("#register-realname").addClass("form-control is-valid");
+					flagName1 = true;
 				}
 			})
 			/*验证密码*/
@@ -120,10 +140,28 @@
 
 
 			$("#regbtn").click(function () {
-				if (flagName && flagPas && flagPass) {
-					localStorage.setItem("name", name);
-					localStorage.setItem("passWord", passWord);
-					location = "login.html"
+				if (flagName && flagName && flagPas && flagPass) {
+					console.log(uname, realname, passWord);
+					$.ajax({
+						type: "POST",
+						url: "AddUserServlet",
+						data: { "uname": uname, "realname": realname, "upwd": passWord },
+						dataType: "json",//后台返回来的数据类型
+						async: true,
+						success: function (res) {
+							alert("注册成功~~");
+							/*存入当前输入的账号密码*/
+							localStorage.setItem("uname", uname);
+							localStorage.setItem("realname", realname);
+							localStorage.setItem("upwd", passWord);
+							window.location.href = "login.html";
+						},
+						error: function (errorThrown) {
+							alert("注册失败");
+							console.log(errorThrown);
+						}
+					});
+					// location = "login.html"
 				} else {
 					if (!flagName) {
 						$("#register-username").addClass("form-control is-invalid");

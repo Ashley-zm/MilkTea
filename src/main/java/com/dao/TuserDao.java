@@ -19,7 +19,7 @@ public class TuserDao {
         return null;
     }
     public Boolean zhuce(String uname,String upwd,String realname){
-        String sql="insert into tuser (uname,upwdrealname) values(?,?,?) ";
+        String sql="insert into tuser (uname,upwd,realname) values(?,?,?) ";
         int update = DH.update(sql, new String[]{uname, upwd, realname});
         if (update>0){
             return true;
