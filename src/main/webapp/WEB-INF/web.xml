@@ -33,6 +33,10 @@
         <servlet-name>DeleteGoodServlet</servlet-name>
         <servlet-class>com.web.DeleteGoodServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddUserServlet</servlet-name>
+        <servlet-class>com.web.AddUserServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
     <servlet-name>loginServlet</servlet-name>
     <url-pattern>/loginServlet</url-pattern>
@@ -60,6 +64,10 @@
     <servlet-mapping>
         <servlet-name>DeleteGoodServlet</servlet-name>
         <url-pattern>/DeleteGoodServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddUserServlet</servlet-name>
+        <url-pattern>/AddUserServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>login.html</welcome-file>

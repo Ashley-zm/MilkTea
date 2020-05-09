@@ -46,8 +46,8 @@
             },
             created: function () {
                 axios.get("../GoodsServlet").then((ret) => {
-                    app1.items = ret.data
-                    console.log(ret.data)
+                    app1.items = ret.data;
+                    console.log(ret.data);
                 })
                     .catch((error) => {
                         console.log(error);

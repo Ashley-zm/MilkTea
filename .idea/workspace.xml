@@ -2,12 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="513168d8-499a-4f8e-a48e-2ac1a54348b2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/AddUserServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/UpdateGoodServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/UpdateGoodServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/DH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/DH.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/TuserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/TuserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/TuserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/TuserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/AddGoodServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/AddGoodServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/goods_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/goods_table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dao/GoodsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dao/GoodsDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/service/GoodsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/GoodsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/TuserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/TuserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/web/AddGoodServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/AddGoodServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/web/UpdateGoodServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/UpdateGoodServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
@@ -210,7 +217,9 @@
       <workItem from="1588553331820" duration="28528000" />
       <workItem from="1588643751806" duration="13267000" />
       <workItem from="1588725535458" duration="10857000" />
-      <workItem from="1588822058208" duration="6576000" />
+      <workItem from="1588822058208" duration="7174000" />
+      <workItem from="1588919296567" duration="7398000" />
+      <workItem from="1588991786438" duration="2019000" />
     </task>
     <servers />
   </component>
