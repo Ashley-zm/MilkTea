@@ -80,7 +80,7 @@ public class DH {
 		}
 		return num.intValue();
 	}
-
+//公共方法
 	public static Connection getconn() {
 		Connection conn = null;
 		try {
