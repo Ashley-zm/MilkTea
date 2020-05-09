@@ -15,4 +15,14 @@ public class TuserService {
 
         }
     }
+    public String zhuce(String uname,String upwd,String realname){
+        Boolean zc = td.zhuce(uname, upwd, realname);
+        if(zc==null){
+            return "{\"msg\":\"error\"}";
+        }else {
+            return JSON.toJSON(zc).toString();
+
+        }
+
+    }
 }
