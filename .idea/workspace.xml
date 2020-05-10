@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="513168d8-499a-4f8e-a48e-2ac1a54348b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/AddUserServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/DH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/DH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/TuserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/TuserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/Ee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/Ee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/Singleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/Singleton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/service/TuserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/TuserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/AddGoodServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/AddGoodServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dao/GoodsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dao/GoodsDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/TuserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dao/TuserDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/service/GoodsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/GoodsService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/service/TuserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/TuserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/web/AddGoodServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/AddGoodServlet.class" afterDir="false" />
@@ -29,8 +28,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -63,7 +62,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/pojo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/service" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -74,18 +73,18 @@
       <recent name="com.dao" />
       <recent name="com.service" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\pojo" />
-      <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\webapp\js" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\webapp" />
-      <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\webapp\css" />
-      <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\dao" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\service" />
+      <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\pojo" />
+      <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\webapp\js" />
       <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\webapp" />
+      <recent name="H:\青软实训\课程\Java web\project\milk_tea\src\main\webapp\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -219,7 +218,8 @@
       <workItem from="1588725535458" duration="10857000" />
       <workItem from="1588822058208" duration="7174000" />
       <workItem from="1588919296567" duration="7398000" />
-      <workItem from="1588991786438" duration="2019000" />
+      <workItem from="1588991786438" duration="7573000" />
+      <workItem from="1589079473891" duration="12351000" />
     </task>
     <servers />
   </component>

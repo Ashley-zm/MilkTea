@@ -17,13 +17,15 @@ public class Ee {
 
 	/**
 	 * 连接建立成功调用的方法
-	 * @param session  可选的参数。session为与某个客户端的连接会话，需要通过它来给客户端发送数据
+	 * *@param session  可选的参数。session为与某个客户端的连接会话，需要通过它来给客户端发送数据
 	 */
 	@OnOpen //连接创建成功时调用下面的方法
 	public void abcd1(Session session,@PathParam(value="id")String id) {
-		System.out.println(id);
+		System.out.println(id+"已连接");
 		
-//		DL d=Singleton.getdl();
+		Singleton s=Singleton.getsl();
+		s.saveuser(id,session);
+
 //		int uid=Integer.parseInt(id);
 //		d.saveuid(uid,session);
 		
@@ -31,15 +33,14 @@ public class Ee {
 	
 	@OnClose //连接创建关闭时调用下面的方法
 	public void abcd2(@PathParam(value="id")String id) {
-//		DL d=DL.getdl();
-//		int uid=Integer.parseInt(id);
-//		d.removeuid(uid);
+        Singleton s=Singleton.getsl();
+		s.removeuser(id);
 	}
 
 	/**
 	 * 发生错误时调用
-	 * @param session
-	 * @param error
+	 * * @param session
+	 * * @param error
 	 */
 	@OnError //连接创建出错时调用下面的方法
 	public void abcd3(Throwable error) {
@@ -50,8 +51,8 @@ public class Ee {
 
 	/**
 	 * 收到客户端消息后调用的方法
-	 * @param message 客户端发送过来的消息
-	 * @param session 可选的参数
+	 * *@param message 客户端发送过来的消息
+	 * *@param session 可选的参数
 	 */
 	@OnMessage //客户端向服务器发送消息时调用下面的方法
 	public void abcd4(Session session,@PathParam(value="id")String id,String message) {
