@@ -1,11 +1,14 @@
+com\web\DeleteGoodServlet.class
 com\web\loginServlet.class
 com\web\TmenuServlet.class
 com\pojo\Trole.class
-com\pojo\Page_ini.class
+com\service\Ee.class
 com\web\UpdateGoodServlet.class
 com\pojo\Tuser.class
 com\service\TmenuService.class
 com\pojo\Goods.class
+com\service\Singleton.class
+com\web\AddUserServlet.class
 com\dao\GoodsDao.class
 com\pojo\Page.class
 com\dao\DH.class

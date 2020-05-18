@@ -13,11 +13,6 @@ public class TuserDao {
             return null;
         }
     }
-    public Tuser login(String uid){
-//        多表查询：inner join 是内关联、子查询
-//        "select uid from "
-        return null;
-    }
     public Boolean zhuce(String uname,String upwd,String realname){
         String sql="insert into tuser (uname,upwd,realname) values(?,?,?) ";
         int update = DH.update(sql, new String[]{uname, upwd, realname});
@@ -28,6 +23,12 @@ public class TuserDao {
         }
     }
     public Boolean changePwd(String id,String newpwd){
-        return null;
+        String sql="update tuser set upwd=? where id=?";
+        int num=DH.update(sql,new String[]{newpwd,id});
+        if (num>0){
+            return true;
+        }else {
+            return false;
+        }
     }
 }

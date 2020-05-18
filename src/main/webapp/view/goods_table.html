@@ -63,7 +63,7 @@
         <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="edit"><i class="layui-icon">&#xe642;编辑</a>
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
     </div>
-    <!-- 行工具栏按钮开始 -->
+    <!-- 行工具栏按钮结束 -->
 
     <!-- 添加区域开始 -->
     <div class="layui-row" id="formBox" style="display:none;position: absolute;top: 0; left: 0; bottom: 0; right: 0;">
@@ -256,7 +256,7 @@
                         , data = checkStatus.data; //获取选中的数据
                     //json字符串转换成Json数据 eval("("+jsonStr+")")  /JSON.parse(jsonStr)
                     data = eval("(" + JSON.stringify(data) + ")");
-                    console.log(data);
+                    // console.log(data);
 
                     switch (obj.event) {
                         case 'add':
@@ -295,9 +295,9 @@
                                                 }
                                             });
                                         }
-                                        /*   //捉到所有被选中的，发异步进行删除
-                                           layer.msg('删除成功', {icon: 1});
-                                           $(".layui-form-checked").not('.header').parents('tr').remove();*/
+                                        //捉到所有被选中的，发异步进行删除
+                                        // layer.msg('删除成功', { icon: 1 });
+                                        // $(".layui-form-checked").not('.header').parents('tr').remove();
                                     }
                                     , btn2: function () {
                                         layer.msg('好的,暂时不给您删除。', { icon: 1, time: 1500 });
@@ -320,7 +320,8 @@
                     var tr = obj.tr; //获得当前行 tr 的DOM对象
                     if (layEvent === 'del') { //删除
                         // layer.msg("删除");
-                        layer.confirm('真的删除行么', function (index) {
+                        alert(tr);
+                        layer.confirm('确认删除当前' + tr + '行', function (index) {
                             obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
                             layer.close(index);
                             //向服务端发送删除指令
@@ -343,15 +344,12 @@
                         });
                     } else if (layEvent === 'edit') { //编辑
                         layer.msg("编辑");
-                        console.log("----------" + data.id);
-                        console.log("===" + data.sname);
-                        console.log("===" + data.sprice)
                         $('#id').attr('value', data.id);
                         $('#ed_sname').attr('value', data.sname);
                         $('#ed_sprice').attr('value', data.sprice);
                         $('#ed_materials').attr('value', data.materials);
                         $('#ed_introduction').attr('value', data.introduction);
-                        console.log($('#ed_sname').val());
+                        // console.log($('#ed_sname').val());
                         var index = layer.index;
                         layer.open({
                             //layer提供了5种层类型。可传入的值有：0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
@@ -376,15 +374,6 @@
                 // 监听单元格编辑
                 function ed_Sub(obj, data) {
                     form.on('submit(ed_submit)', function (data) { //注：edit是固定事件名，test是table原始容器的属性 lay-filter="对应的值"
-
-                        // var value = data.value //得到修改后的值
-                        //     , data = data.data//得到所在行所有键值
-                        //     , field = data.field; //得到字段
-                        // var
-                        //     // layer.msg('[ID: ' + data.id + '] ' + field + ' 字段更改为：' + value);
-                        //     console.log(data.value); //得到修改后的值
-                        // console.log(data.data); //当前编辑的字段名
-                        // console.log(data.field); //所在行的所有相关数据  
                         var formData = data.field;
                         var id = formData.id,
                             sname = formData.sname,
@@ -393,19 +382,7 @@
                             introduction = formData.introduction;
 
                         var index = layer.index;
-
-                        // //发送post请求更新数据
-                        // $.post("UpdateGoodServlet?" + "&id=" + id + "&sname=" + sname + "&sprice=" + sprice + "&materials=" + materials + "&introduction=" + introduction, function (msg) {
-
-                        //     let retJson = JSON.parse(msg);
-                        //     console.log("heihei" + retJson);
-
-                        // });
-                        console.log("&&&&&&&&&&&&&&" + id);
-                        console.log("&&&&&&&&&&&&&&" + sname);
-                        console.log("&&&&&&&&&&&&&&" + sprice);
-                        console.log("&&&&&&&&&&&&&&" + materials);
-                        console.log("&&&&&&&&&&&&&&" + introduction);
+                        // console.log("&&&&&&&&&&&&&&" + id);
                         //动态向表传递赋值可以参看文章进行修改界面的更新前数据的显示，当然也是异步请求的要数据的修改数据的获取
                         $.ajax({
                             type: "post",  //数据提交方式（post/get）
@@ -413,9 +390,9 @@
                             data: { "id": id, "sname": sname, "sprice": sprice, "materials": materials, "introduction": introduction },//提交的数据
                             // dataType: "json",//返回的数据类型格式
                             success: function (msg) {
-                                console.log(msg);//{msg:"success"}
+                                // console.log(msg);//{msg:"success"}
                                 var msgJson = JSON.parse(msg);
-                                console.log(msgJson.msg);//"success"
+                                // console.log(msgJson.msg);//"success"
                                 if (msgJson.msg == 'success') {  //成功
                                     layer.msg("更新成功", {
                                         time: 3000,//显示的时间为3秒
@@ -480,11 +457,11 @@
                         data: { "id": id, "sname": sname, "sprice": sprice, "materials": materials, "introduction": introduction },//提交的数据
                         dataType: "json",//返回的数据类型格式
                         success: function (msg) {
-                            console.log(msg);//{msg:"success"}
-                            console.log(msg.msg);//"success"
+                            // console.log(msg);//{msg:"success"}
+                            // console.log(msg.msg);//"success"
 
                             if (msg.msg == 'success') {  //成功
-                                console.log(index);
+                                // console.log(index);
                                 layer.msg(msg.msg, { icon: 1, time: 1500 });
                                 table.reload('tableReload');//数据表格重载
                                 setTimeout(function () {
@@ -512,12 +489,8 @@
                     // layer.msg(JSON.stringify(data.field));//表格数据序列化
 
                     var formData = data.field;
-                    // console.debug(formData);
-                    // console.log(formData);
 
                     var name = formData.name, materials = formData.name;
-                    // console.log(name);
-                    // console.log(materials);
 
                     // //数据表格重载
                     table.reload('tableReload', {

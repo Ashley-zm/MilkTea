@@ -54,7 +54,7 @@ public class Singleton {
         }
         return s;
     }
-//    创建了泛型 hashmap int报错，其实没有int类型，在底层都转化成Integer
+//    创建了泛型 hashmap，如果使用int报错，其实java没有int类型，在底层都转化成Integer
 //    类型转换耗费资源
     private Map<String, Session> userrol;
 

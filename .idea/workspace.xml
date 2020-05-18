@@ -2,18 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="513168d8-499a-4f8e-a48e-2ac1a54348b2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/milk_tea.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/DH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/DH.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/TuserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/TuserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pojo/Goods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/Page_ini.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/Tmenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pojo/Tmenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/Trole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pojo/Trole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/Tuser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pojo/Tuser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/service/Ee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/Ee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/service/Singleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/Singleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/TmenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/TmenuService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/service/TuserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/TuserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/AddUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/AddUserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/GoodsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/GoodsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/loginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/loginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/style.default.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.default.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/axios.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/axios.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/front.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/front.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/goods_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/goods_table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/DH.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dao/DH.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dao/GoodsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dao/GoodsDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dao/TuserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dao/TuserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/Page_ini.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/service/GoodsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/GoodsService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/service/TuserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/TuserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/web/AddGoodServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/AddGoodServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/web/GoodsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/GoodsServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/web/UpdateGoodServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/UpdateGoodServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
@@ -220,6 +240,11 @@
       <workItem from="1588919296567" duration="7398000" />
       <workItem from="1588991786438" duration="7573000" />
       <workItem from="1589079473891" duration="12351000" />
+      <workItem from="1589160016897" duration="6362000" />
+      <workItem from="1589426161893" duration="2441000" />
+      <workItem from="1589500009055" duration="4587000" />
+      <workItem from="1589684266341" duration="2860000" />
+      <workItem from="1589771287599" duration="797000" />
     </task>
     <servers />
   </component>

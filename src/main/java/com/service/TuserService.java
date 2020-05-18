@@ -6,11 +6,11 @@ import com.pojo.Tuser;
 
 public class TuserService {
     private TuserDao td=new TuserDao();
-//    验证用户是否已经登录
 
     public String login(String uname,String upwd){
         Tuser u1= td.login(uname, upwd);
 
+//    验证用户是否已经登录
         Singleton s = Singleton.getsl();
         Boolean s1 = s.isol(u1.getId() + "");
         if (s1){
@@ -30,6 +30,17 @@ public class TuserService {
             return "{\"msg\":\"error\"}";
         }else {
             return JSON.toJSON(zc).toString();
+
+        }
+
+    }
+
+    public String changePwd(String id,String newpwd){
+        Boolean cp = td.changePwd(id, newpwd);
+        if(cp==null){
+            return "{\"msg\":\"error\"}";
+        }else {
+            return JSON.toJSON(cp).toString();
 
         }
 

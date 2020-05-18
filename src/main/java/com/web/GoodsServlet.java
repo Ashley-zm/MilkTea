@@ -30,8 +30,8 @@ public class GoodsServlet extends HttpServlet {
 
         int page1 = Integer.parseInt(request.getParameter("page"));
         int limit = Integer.parseInt(request.getParameter("limit"));
-        System.out.println("page1------------------"+page1);
-        System.out.println("limit*******************"+limit);
+//        System.out.println("page1------------------"+page1);
+//        System.out.println("limit*******************"+limit);
 /***
  *total   总记录数
  *currentpage    当前页
@@ -40,7 +40,7 @@ public class GoodsServlet extends HttpServlet {
  *Page page = new Page(pageCount, currentPage, pageSize);
   */
         Page page=new Page(tl.getTotalCount(),page1,limit);
-        System.out.println("page------------------"+page);
+//        System.out.println("page------------------"+page);
         int totalCount = ct.getTotalCount();
         String cout=String.valueOf(totalCount);
         request.setAttribute("count",cout);
@@ -49,7 +49,7 @@ public class GoodsServlet extends HttpServlet {
         String l=tl.getall(page);
 
         PrintWriter out=response.getWriter();
-        System.out.println("--------------"+l);
+//        System.out.println("--------------"+l);
         out.println(l);
 //        flush()意思是把缓冲区的内容强制的写出
 //        flush方法一般是程序写入完成时执行。随后跟着close方法。

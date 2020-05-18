@@ -1,7 +1,9 @@
 H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\web\GoodsServlet.java
-H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\pojo\Page_ini.java
 H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\web\loginServlet.java
+H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\web\DeleteGoodServlet.java
 H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\pojo\Goods.java
+H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\web\AddUserServlet.java
+H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\service\Ee.java
 H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\dao\TmenuDao.java
 H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\service\TuserService.java
 H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\web\TmenuServlet.java
@@ -16,4 +18,5 @@ H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\dao\TuserDao.
 H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\dao\DH.java
 H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\pojo\Page.java
 H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\pojo\Tmenu.java
+H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\service\Singleton.java
 H:\青软实训\课程\Java web\project\milk_tea\src\main\java\com\web\UpdateGoodServlet.java

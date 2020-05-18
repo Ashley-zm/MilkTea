@@ -44,9 +44,9 @@ public class Ee {
 	 */
 	@OnError //连接创建出错时调用下面的方法
 	public void abcd3(Throwable error) {
-//		DL d=DL.getdl();
+//		Singleton s=Singleton.getsl();
 //		int uid=Integer.parseInt(id);
-//		d.removeuid(uid);
+//		s.removeuser(id);
 	}
 
 	/**

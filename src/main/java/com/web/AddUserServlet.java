@@ -20,8 +20,6 @@ public class AddUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //这里一定要设置json格式
         response.setContentType("application/json;charset=utf-8");
-//        response.setContentType("text/html");
-//        response.setCharacterEncoding("utf-8");
         // 获取前端发送的数据
         String uname=request.getParameter("uname");
         String upwd=request.getParameter("upwd");
