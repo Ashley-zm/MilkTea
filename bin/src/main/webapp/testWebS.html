@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var w;
+    function init() {
+      // 双工通道
+      w = new WebSocket("ws://localhost:8000/naicha/ssss/1");
+      w.onopen = function () {
+
+      };
+      w.onclose = function () {
+
+      };
+      w.onmessage = function () {
+
+      };
+      w.onerror = function () {
+
+      };
+
+    }
+  </script>
+</head>
+
+<body onload="init();">
+
+</body>
+
+</html>

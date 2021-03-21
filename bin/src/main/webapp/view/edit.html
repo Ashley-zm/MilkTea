@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+  <script src="../layui/layui.all.js"></script>
+  <script src="../layui/layui.js"></script>
+  <script src="../js/vue.js"></script>
+  <script src="../js/axios.min.js"></script>
+  <!-- 自动跨域，变异成任何底层的语言 -->
+  <script src="../js/mui.js"></script>
+</head>
+<style>
+  .layui-form-label {
+    background-image: linear-gradient(to right, #0fab55,
+        #28C76F);
+    color: #fff;
+  }
+
+  .layui-form-pane,
+  .layui-form-item {
+    width: 93%;
+    left: 7%;
+    margin-top: 3%;
+  }
+
+  .layui-input {
+    border: none;
+  }
+</style>
+
+<body>
+  <form id="form" class="layui-form layui-form-pane" action="">
+    <div class="layui-form-item" pane>
+      <label class="layui-form-label">奶茶名称</label>
+      <div class="layui-input-block">
+        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input"
+          v-model="add.sname">
+      </div>
+    </div>
+    <div class="layui-form-item" pane>
+      <label class="layui-form-label">奶茶价格</label>
+      <div class="layui-input-block">
+        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input"
+          v-model="add.sprice">
+      </div>
+    </div>
+    <div class="layui-form-item" pane>
+      <label class="layui-form-label">奶茶原材料</label>
+      <div class="layui-input-block">
+        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input"
+          v-model="add.materials">
+      </div>
+    </div>
+    <div class="layui-form-item" pane>
+      <label class="layui-form-label">产品描述</label>
+      <div class="layui-input-block">
+        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input"
+          v-model="add.introduction">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <div class="layui-input-block" style="left: 15%; margin-top: 3%;">
+        <button type="submit" class="layui-btn" lay-submit lay-filter="demo1" @click="submit()">立即提交</button>
+        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+      </div>
+    </div>
+  </form>
+  <script>
+    // 这个是获取上一面的url的参数
+    var theParam = new Object();
+    var url = decodeURI(window.location.search);// 当前请求的url的参数部分
+    // console.log(url);  // 结果 ?id=1&sname=芋圆波波奶茶
+    function getUrlParam() {
+      if (url.indexOf("?") != -1) { //确保‘？’不是最后一个字符串，即携带的参数不为空
+        var str = url.substr(1); //substr是字符串的用法之一，抽取指定字符的数目，这里抽取？后的所有字符
+        strs = str.split("&"); //将获取到的字符串从&分割，输出参数数组，即输出[参数1=xx,参数2=xx,参数3=xx,...]的数组形式
+        for (var i = 0; i < strs.length; i++) { //遍历参数数组
+          theParam[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]); //这里意思是抽取每个参数等号后面的值，unescape是解码的意思
+        }
+      }
+      // console.log(theParam);
+
+      return theParam; //返回参数值
+    }
+    getUrlParam();
+    var param = getUrlParam();
+    // console.log(param.id + param.sname);
+    // console.log(param.sprice);
+
+    // 通过vue进行数据绑定来渲染表格,也可以用layui的表单赋值，但是没有vue的数据双向绑定方便
+    var app1 = new Vue({
+      el: "#form",
+      data: {
+        add: {
+          sname: param.sname,
+          // sname: 'dd',
+          sprice: param.sprice,
+          materials: param.materials,
+          introduction: param.introduction
+        }
+
+      },
+      methods: {
+        submit: function () {
+          mui.ajax("../AddGoodServlet", {
+            data: app1.add,
+            dataType: 'json',//fuwuqifanhuijson格式数据
+            type: 'post',//http请求类型
+            timeout: 10000,//超时时间设置为10s
+            success: function (data) {
+              if (data.msg == "success") {
+                alert("添加成功");
+                // axios.get("../GoodsServlet").then((res) => {
+                //   app1.
+                // })
+              }
+
+            },
+            error: function (xhr, type, errorThrown) {
+              //异常处理
+              alert(type);
+
+            }
+          })
+        }
+      },
+    });
+
+    // layui框架表格
+    // layui.use('form', function () {
+    //   // var form = layui.form();
+    //   var form = layui.form,
+    //     layer = layui.layer
+    //   //监听提交
+    //   form.on('submit(demo1)', function (data) {
+    //     layer.alert(JSON.stringify(data.field), {
+    //       title: '最终的提交信息'
+    //     })
+    //     return false;
+    //   });
+
+    // });
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+0:0:0:0:0:0:0:1 - - [10/Jan/2021:20:50:26 +0800] "GET /naicha HTTP/1.1" 302 - http-bio-8000-exec-2 0
+0:0:0:0:0:0:0:1 - - [10/Jan/2021:20:50:26 +0800] "GET /naicha HTTP/1.1" 302 - http-bio-8000-exec-3 0
+0:0:0:0:0:0:0:1 - - [10/Jan/2021:20:50:27 +0800] "GET /naicha/ HTTP/1.1" 200 5833 http-bio-8000-exec-4 15
+0:0:0:0:0:0:0:1 - - [10/Jan/2021:20:50:27 +0800] "GET /naicha/vendor/jquery-validation/jquery.validate.min.js HTTP/1.1" 200 23261 http-bio-8000-exec-1 46
+0:0:0:0:0:0:0:1 - - [10/Jan/2021:20:50:27 +0800] "GET /naicha/css/style.default.css HTTP/1.1" 200 67512 http-bio-8000-exec-5 47
+0:0:0:0:0:0:0:1 - - [10/Jan/2021:20:50:27 +0800] "GET /naicha/js/front.js HTTP/1.1" 200 5964 http-bio-8000-exec-6 3
+0:0:0:0:0:0:0:1 - - [10/Jan/2021:20:50:27 +0800] "GET /naicha/img/p_big3.jpg HTTP/1.1" 200 15369 http-bio-8000-exec-9 5
+0:0:0:0:0:0:0:1 - - [10/Jan/2021:20:51:29 +0800] "GET /naicha/ HTTP/1.1" 304 - http-bio-8000-exec-3 3
+0:0:0:0:0:0:0:1 - - [10/Jan/2021:20:51:29 +0800] "GET /naicha/img/header.png HTTP/1.1" 200 51104 http-bio-8000-exec-3 6
